@@ -1,0 +1,33 @@
+{
+  "name": "jscollection",
+  "version": "1.0.0",
+  "description": "Simple collection classes that can be used in JS/Node.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Varun2604/JSCollection.git"
+  },
+  "keywords": [
+    "collection",
+    "collection",
+    "classes",
+    "node",
+    "collection",
+    "sorted",
+    "collection",
+    "TreeSet",
+    "SortedSet"
+  ],
+  "author": "Varun Venketeswaran Iyer (Varun2604)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Varun2604/JSCollection/issues"
+  },
+  "homepage": "https://github.com/Varun2604/JSCollection#readme"
+}
