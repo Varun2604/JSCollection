@@ -9,5 +9,5 @@
 | Param | Default | Description |
 | --- | --- | --- |
 | data |  | the node data |
-| left | <code></code> | the left node |
-| right | <code></code> | the right node |
+| left | <code>null</code> | the left node |
+| right | <code>null</code> | the right node |
