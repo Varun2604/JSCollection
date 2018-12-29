@@ -17,9 +17,9 @@
 
 | Param | Default | Description |
 | --- | --- | --- |
-| data |  | <p>the node data</p> |
-| left | <code></code> | <p>the left node</p> |
-| right | <code></code> | <p>the right node</p> |
+| data |  | the node data |
+| left | <code></code> | the left node |
+| right | <code></code> | the right node |
 
 <a name="TreeList"></a>
 
@@ -56,204 +56,204 @@
 
 | Param | Default | Description |
 | --- | --- | --- |
-| comparator |  | <p>the comparator function</p> |
-| root | <code></code> | <p>the root element Comparator working :-</p> <pre class="prettyprint source"><code>               1. The comparator returns -1 if the new node is lesser than the previous node                2. The comparator returns 0 if the new node is equal to the previous node                3. The comparator returns 1 if the new node is greater than the previous node</code></pre> |
+| comparator |  | the comparator function |
+| root | <code></code> | the root element Comparator working :- <pre class="prettyprint source"><code>               1. The comparator returns -1 if the new node is lesser than the previous node                2. The comparator returns 0 if the new node is equal to the previous node                3. The comparator returns 1 if the new node is greater than the previous node</code></pre> |
 
 <a name="TreeList+push"></a>
 
 ### treeList.push(new_ele) ⇒
-<p>Method appends a new element to the list</p>
+Method appends a new element to the list
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>boolean returns true if the insertion is successful</p>  
+**Returns**: boolean returns true if the insertion is successful  
 
 | Param | Description |
 | --- | --- |
-| new_ele | <p>the new element to be inserted in the list</p> |
+| new_ele | the new element to be inserted in the list |
 
 <a name="TreeList+remove"></a>
 
 ### treeList.remove(ele) ⇒
-<p>Removes the given element from the list</p>
+Removes the given element from the list
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>TreeNode the removed element</p>  
+**Returns**: TreeNode the removed element  
 
 | Param | Description |
 | --- | --- |
-| ele | <p>The TreeNode that is to be removed</p> |
+| ele | The TreeNode that is to be removed |
 
 <a name="TreeList+pop"></a>
 
 ### treeList.pop() ⇒
-<p>Method removes the element at the end of the list</p>
+Method removes the element at the end of the list
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>TreeNode the removed element</p>  
+**Returns**: TreeNode the removed element  
 <a name="TreeList+shift"></a>
 
 ### treeList.shift() ⇒
-<p>Method removes the element at the start of the list</p>
+Method removes the element at the start of the list
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>TreeNode the removed element</p>  
+**Returns**: TreeNode the removed element  
 <a name="TreeList+contains"></a>
 
 ### treeList.contains() ⇒
-<p>Method checks if the element is in the list</p>
+Method checks if the element is in the list
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>boolean true, if the element is present in the list</p>  
+**Returns**: boolean true, if the element is present in the list  
 <a name="TreeList+indexOf"></a>
 
 ### treeList.indexOf() ⇒
-<p>Method returns the index of the given element, or -1 if the element is not present.</p>
+Method returns the index of the given element, or -1 if the element is not present.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>int the index of the given element</p>  
+**Returns**: int the index of the given element  
 <a name="TreeList+lastIndexOf"></a>
 
 ### treeList.lastIndexOf() ⇒
-<p>Method returns the last index of the given element, or -1 if the element is not present.</p>
+Method returns the last index of the given element, or -1 if the element is not present.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>int the last index of the given element</p>  
+**Returns**: int the last index of the given element  
 <a name="TreeList+forEach"></a>
 
 ### treeList.forEach(consumer)
-<p>Method iterates through each of the element present in the list, with the give consumer function</p>
+Method iterates through each of the element present in the list, with the give consumer function
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
 
 | Param | Description |
 | --- | --- |
-| consumer | <p>function that iterates through each of the element in the list</p> |
+| consumer | function that iterates through each of the element in the list |
 
 <a name="TreeList+join"></a>
 
 ### treeList.join(delimiter) ⇒
-<p>Method creates and returns a new string by concatenating all of the elements in an array</p>
+Method creates and returns a new string by concatenating all of the elements in an array
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>String a string with all elements joined with the delimiter</p>  
+**Returns**: String a string with all elements joined with the delimiter  
 
 | Param | Default | Description |
 | --- | --- | --- |
-| delimiter | <code>,</code> | <p>the delimiter for joining the elements in the string</p> |
+| delimiter | <code>,</code> | the delimiter for joining the elements in the string |
 
 <a name="TreeList+filter"></a>
 
 ### treeList.filter(predicate) ⇒
-<p>Method takes in a predicate function, and returns a filtered array.</p>
+Method takes in a predicate function, and returns a filtered array.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>Array an array with all the elements that are accepted by the predicate</p>  
+**Returns**: Array an array with all the elements that are accepted by the predicate  
 
 | Param | Description |
 | --- | --- |
-| predicate | <p>the predicate function, should return true if the element is to be present in the new array</p> |
+| predicate | the predicate function, should return true if the element is to be present in the new array |
 
 <a name="TreeList+map"></a>
 
 ### treeList.map(consumer) ⇒
-<p>Method takes in a consumer function, and returns an array consisting of the results of applying the given function to the elements of the list.</p>
+Method takes in a consumer function, and returns an array consisting of the results of applying the given function to the elements of the list.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>Array an array with all the new elements values</p>  
+**Returns**: Array an array with all the new elements values  
 
 | Param | Description |
 | --- | --- |
-| consumer | <p>the consumer function, that returns the new value of the node data</p> |
+| consumer | the consumer function, that returns the new value of the node data |
 
 <a name="TreeList+toArray"></a>
 
 ### treeList.toArray() ⇒
-<p>Method returns the contents of the list as an array</p>
+Method returns the contents of the list as an array
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>Array the contents of the list</p>  
+**Returns**: Array the contents of the list  
 <a name="TreeList+reduce"></a>
 
 ### treeList.reduce(reducer, initial_value) ⇒
-<p>The reduce() method executes a reducer function (that you provide) on each member of the array resulting in a single output value.</p>
+The reduce() method executes a reducer function (that you provide) on each member of the array resulting in a single output value.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>Object the final value</p>  
+**Returns**: Object the final value  
 
 | Param | Description |
 | --- | --- |
-| reducer | <p>the reducer function</p> |
-| initial_value | <p>the initial value</p> |
+| reducer | the reducer function |
+| initial_value | the initial value |
 
 <a name="TreeList+every"></a>
 
 ### treeList.every(callback) ⇒
-<p>The every() method tests whether all elements in the array pass the test implemented by the provided function.</p>
+The every() method tests whether all elements in the array pass the test implemented by the provided function.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>boolean true if all elements pass the test</p>  
+**Returns**: boolean true if all elements pass the test  
 
 | Param | Description |
 | --- | --- |
-| callback | <p>the callback</p> |
+| callback | the callback |
 
 <a name="TreeList+some"></a>
 
 ### treeList.some(callback) ⇒
-<p>The some() method tests whether at least one element in the array passes the test implemented by the provided function.</p>
+The some() method tests whether at least one element in the array passes the test implemented by the provided function.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>boolean true if all elements pass the test</p>  
+**Returns**: boolean true if all elements pass the test  
 
 | Param | Description |
 | --- | --- |
-| callback | <p>the callback</p> |
+| callback | the callback |
 
 <a name="TreeList+find"></a>
 
 ### treeList.find(callback) ⇒
-<p>The find() method returns the value of the first element in the array that satisfies the provided testing function.</p>
+The find() method returns the value of the first element in the array that satisfies the provided testing function.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>Object the element if found, else undefined</p>  
+**Returns**: Object the element if found, else undefined  
 
 | Param | Description |
 | --- | --- |
-| callback | <p>the callback</p> |
+| callback | the callback |
 
 <a name="TreeList+concat"></a>
 
 ### treeList.concat(array)
-<p>Method merges the given array with the list.</p>
+Method merges the given array with the list.
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
 
 | Param | Description |
 | --- | --- |
-| array | <p>the array to be merged</p> |
+| array | the array to be merged |
 
 <a name="TreeList.comparator"></a>
 
 ### TreeList.comparator(curr_ele, new_ele) ⇒
-<p>The default comparator, sorts the elements in ascending order</p>
+The default comparator, sorts the elements in ascending order
 
 **Kind**: static method of [<code>TreeList</code>](#TreeList)  
-**Returns**: <p>int returns +1 if the new element is to be placed right to the current element,
+**Returns**: int returns +1 if the new element is to be placed right to the current element,
              -1 if the new element is to be placed to the left of the current element
-             and 0 if the elements are equal.</p>  
+             and 0 if the elements are equal.  
 
 | Param | Description |
 | --- | --- |
-| curr_ele | <p>the previous element</p> |
-| new_ele | <p>current element</p> |
+| curr_ele | the previous element |
+| new_ele | current element |
 
 <a name="TreeList.leftMost"></a>
 
 ### TreeList.leftMost(node)
-<p>Method returns the left most node with reference to the current node.</p>
+Method returns the left most node with reference to the current node.
 
 **Kind**: static method of [<code>TreeList</code>](#TreeList)  
 
 | Param | Description |
 | --- | --- |
-| node | <p>the node with reference to which the current node is to be found out.</p> |
+| node | the node with reference to which the current node is to be found out. |
