@@ -1,7 +1,7 @@
 ## Classes
 
 <dl>
-<dt>[TreeNode](TreeNode.md)</dt>
+<dt>[TreeNode](https://github.com/Varun2604/jscollection/blob/master/docs/TreeNode.md)</dt>
 <dd></dd>
 <dt><a href="#TreeList">TreeList</a></dt>
 <dd></dd>
