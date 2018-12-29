@@ -31,7 +31,7 @@ class TreeList{
      * @return boolean returns true if the insertion is successful
      * */
     push(new_ele){
-        if(!new_ele instanceof TreeNode){
+        if(!(new_ele instanceof TreeNode)){
             new_ele = new TreeNode(new_ele);
         }
         let inserted = false;
@@ -53,7 +53,7 @@ class TreeList{
      * @return TreeNode the removed element
      * */
     remove(ele){
-        if(!ele instanceof TreeNode){
+        if(!(ele instanceof TreeNode)){
             ele = new TreeNode(ele);
         }
         if(!this.root){
@@ -91,7 +91,7 @@ class TreeList{
      * @return boolean true, if the element is present in the list
      * */
     contains(ele){
-        if(!ele instanceof TreeNode){
+        if(!(ele instanceof TreeNode)){
             ele = new TreeNode(ele);
         }
         return (this.indexOf(ele)>-1);
@@ -102,12 +102,22 @@ class TreeList{
      * @return int the index of the given element
      * */
     indexOf(ele){
-        if(!ele instanceof TreeNode){
+        if(!(ele instanceof TreeNode)){
             ele = new TreeNode(ele);
         }
         let idx = -1;
-        this.__traverse(this.root, (node)=>{if(!(this.comparator(node, ele) < 0)){idx++}});
-        return ++idx;
+        let found = false;
+        this.__traverseAndBreak(this.root, (node)=>{
+            ++idx;
+            if(TreeList.comparator(ele, node) < 0){
+                return true;
+            }else if(TreeList.comparator(ele, node) === 0){
+                found = true;
+                return false;
+            }
+            return false;
+        });
+        return found?idx:-1;
     }
 
     /**
@@ -115,7 +125,7 @@ class TreeList{
      * @return int the last index of the given element
      * */
     lastIndexOf(ele){
-        if(!ele instanceof TreeNode){
+        if(!(ele instanceof TreeNode)){
             ele = new TreeNode(ele);
         }
         let idx = -1;
@@ -172,6 +182,79 @@ class TreeList{
         let arr = [];
         this.__traverse(this.root, (node)=>{arr.push(node.data);});
         return arr;
+    }
+
+    /**
+     * The reduce() method executes a reducer function (that you provide) on each member of the array resulting in a single output value.
+     * @param reducer the reducer function
+     * @param initial_value the initial value
+     * @return Object the final value
+     * */
+    reduce(reducer, initial_value){
+        if(!initial_value){
+            initial_value = 0;
+        }
+        let accumulator = initial_value;
+        let idx = 0;
+        this.__traverse(this.root, (node)=>{
+            accumulator = reducer(accumulator, node.data, ++idx, this);
+        });
+        return accumulator;
+    }
+
+    /**
+     * The every() method tests whether all elements in the array pass the test implemented by the provided function.
+     * @param callback the callback
+     * @return boolean true if all elements pass the test
+     * */
+    every(callback){
+        let test = true;
+        this.__traverseAndBreak(this.root, (node)=>{
+            test = callback(node.data);
+            return test;
+        });
+        return test;
+    }
+
+    /**
+     * The some() method tests whether at least one element in the array passes the test implemented by the provided function.
+     * @param callback the callback
+     * @return boolean true if all elements pass the test
+     * */
+    some(callback){
+        let test = false;
+        this.__traverseAndBreak(this.root, (node)=>{
+            test = callback(node.data);
+            return !test;
+        });
+        return test;
+    }
+
+    /**
+     * The find() method returns the value of the first element in the array that satisfies the provided testing function.
+     * @param callback the callback
+     * @return Object the element if found, else undefined
+     * */
+    find(callback){
+        let ret = undefined;
+        this.__traverseAndBreak(this.root, (node)=>{
+            if(callback(node.data)){
+                ret = node.data;
+                return false;
+            }
+            return true;
+        });
+        return ret;
+    }
+
+    /**
+     * Method merges the given array with the list.
+     * @param array the array to be merged
+     * */
+    concat(array){
+        for(let x of array){
+            this.push(x);
+        }
     }
 
     //method does inorder traversal on the tree
@@ -301,18 +384,19 @@ class TreeList{
 
 module.exports = {TreeList};
 
-// (()=>{
-//     var {TreeList} = require('./TreeList');
-//     var {TreeNode} = require('./TreeNode');
-//     var t = new TreeList()
-//     t.push(new TreeNode(1))
-//     t.push(new TreeNode(0))
-//     t.push(new TreeNode(2))
-//     t.push(new TreeNode(1.5))
-//     t.push(new TreeNode(3))
-//     t.push(new TreeNode(2.5))
-//     t.push(new TreeNode(4))
-//     t.__traverseAndBreak(t.root, (x)=>{console.log(x.data); if(x.data === 2){return false;}else{return true}});
-// })();
+(()=>{
+    var {TreeList} = require('./TreeList');
+    var {TreeNode} = require('./TreeNode');
+    var t = new TreeList()
+    t.push(new TreeNode(1))
+    t.push(new TreeNode(0))
+    t.push(new TreeNode(2))
+    t.push(new TreeNode(1.5))
+    t.push(new TreeNode(3))
+    t.push(new TreeNode(2.5))
+    t.push(new TreeNode(4))
+    // t.__traverseAndBreak(t.root, (x)=>{console.log(x.data); if(x.data === 2){return false;}else{return true}});
+    t.indexOf(1);
+})();
 
 

@@ -41,6 +41,11 @@
         * [.filter(predicate)](#TreeList+filter) ⇒
         * [.map(consumer)](#TreeList+map) ⇒
         * [.toArray()](#TreeList+toArray) ⇒
+        * [.reduce(reducer, initial_value)](#TreeList+reduce) ⇒
+        * [.every(callback)](#TreeList+every) ⇒
+        * [.some(callback)](#TreeList+some) ⇒
+        * [.find(callback)](#TreeList+find) ⇒
+        * [.concat(array)](#TreeList+concat)
     * _static_
         * [.comparator(curr_ele, new_ele)](#TreeList.comparator) ⇒
         * [.leftMost(node)](#TreeList.leftMost)
@@ -167,6 +172,66 @@
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
 **Returns**: <p>Array the contents of the list</p>  
+<a name="TreeList+reduce"></a>
+
+### treeList.reduce(reducer, initial_value) ⇒
+<p>The reduce() method executes a reducer function (that you provide) on each member of the array resulting in a single output value.</p>
+
+**Kind**: instance method of [<code>TreeList</code>](#TreeList)  
+**Returns**: <p>Object the final value</p>  
+
+| Param | Description |
+| --- | --- |
+| reducer | <p>the reducer function</p> |
+| initial_value | <p>the initial value</p> |
+
+<a name="TreeList+every"></a>
+
+### treeList.every(callback) ⇒
+<p>The every() method tests whether all elements in the array pass the test implemented by the provided function.</p>
+
+**Kind**: instance method of [<code>TreeList</code>](#TreeList)  
+**Returns**: <p>boolean true if all elements pass the test</p>  
+
+| Param | Description |
+| --- | --- |
+| callback | <p>the callback</p> |
+
+<a name="TreeList+some"></a>
+
+### treeList.some(callback) ⇒
+<p>The some() method tests whether at least one element in the array passes the test implemented by the provided function.</p>
+
+**Kind**: instance method of [<code>TreeList</code>](#TreeList)  
+**Returns**: <p>boolean true if all elements pass the test</p>  
+
+| Param | Description |
+| --- | --- |
+| callback | <p>the callback</p> |
+
+<a name="TreeList+find"></a>
+
+### treeList.find(callback) ⇒
+<p>The find() method returns the value of the first element in the array that satisfies the provided testing function.</p>
+
+**Kind**: instance method of [<code>TreeList</code>](#TreeList)  
+**Returns**: <p>Object the element if found, else undefined</p>  
+
+| Param | Description |
+| --- | --- |
+| callback | <p>the callback</p> |
+
+<a name="TreeList+concat"></a>
+
+### treeList.concat(array)
+<p>Method merges the given array with the list.</p>
+
+**Kind**: instance method of [<code>TreeList</code>](#TreeList)  
+
+| Param | Description |
+| --- | --- |
+| array | <p>the array to be merged</p> |
+
 <a name="TreeList.comparator"></a>
 
 ### TreeList.comparator(curr_ele, new_ele) ⇒
