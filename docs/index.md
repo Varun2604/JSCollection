@@ -1,7 +1,8 @@
 ## Classes
 
 <dl>
-<dt><a href="https://github.com/Varun2604/jscollection/blob/master/docs/TreeNode.md">TreeNode</a></dt>
+<!-- <dt><a href="https://github.com/Varun2604/jscollection/blob/master/docs/TreeNode.md">TreeNode</a></dt> -->
+   <dt>![TreeNode](TreeNode.md)</dt>
 <dd></dd>
 <dt><a href="#TreeList">TreeList</a></dt>
 <dd></dd>
