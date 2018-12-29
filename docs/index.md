@@ -1,7 +1,7 @@
 ## Classes
 
 <dl>
-<dt><a href="#TreeNode">TreeNode</a></dt>
+<dt>[TreeNode](./TreeNode.md)</dt>
 <dd></dd>
 <dt><a href="#TreeList">TreeList</a></dt>
 <dd></dd>
