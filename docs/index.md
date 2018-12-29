@@ -1,3 +1,26 @@
+## Classes
+
+<dl>
+<dt><a href="#TreeNode">TreeNode</a></dt>
+<dd></dd>
+<dt><a href="#TreeList">TreeList</a></dt>
+<dd></dd>
+</dl>
+
+<a name="TreeNode"></a>
+
+## TreeNode
+**Kind**: global class  
+<a name="new_TreeNode_new"></a>
+
+### new TreeNode(data, left, right)
+
+| Param | Default | Description |
+| --- | --- | --- |
+| data |  | <p>the node data</p> |
+| left | <code></code> | <p>the left node</p> |
+| right | <code></code> | <p>the right node</p> |
+
 <a name="TreeList"></a>
 
 ## TreeList
@@ -142,9 +165,3 @@
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
 **Returns**: <p>Array the contents of the list</p>  
 <a name="TreeList+__traverse"></a>
-
-### treeList.\_\_traverse()
-<p>method does inorder traversal on the tree
-TODO this works ? No need to use promises ?</p>
-
-**Kind**: instance method of [<code>TreeList</code>](#TreeList) 

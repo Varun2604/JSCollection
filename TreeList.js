@@ -14,7 +14,16 @@ class TreeList{
         this.comparator = comparator;
         this.root = root;
         this.size = 0;
-        this.last = null;
+        this[Symbol.iterator] = function* (){
+            let arr = [];
+            console.log('calling traverse');
+            this.__traverse(this.root, (x)=>{
+                arr.push(x.data);
+            });
+            for(let i = 0; i < arr.length; i++){
+                yield arr[i];
+            }
+        }
     }
 
     /**
@@ -31,7 +40,6 @@ class TreeList{
             inserted =  this.__insert(new_ele, this.root);
         }
         if(inserted){
-            this.last = new_ele;
             this.size++;
         }
         return inserted;
@@ -47,7 +55,8 @@ class TreeList{
             return null;
         }
         this.size--;
-        return this.__delete(ele, this.root);
+        this.__delete(ele, this.root);
+	    return ele.data;
     }
 
     /**
@@ -55,7 +64,10 @@ class TreeList{
      * @return TreeNode the removed element
      * */
     pop(){
-        //TODO need to keep the reference of the last element every time an element is deleted.
+        let last_val = TreeList.__leftMost(this.root);
+        this.__delete(new TreeNode(last_val), this.root);
+        this.size--;
+        return last_val;
     }
 
     /**
@@ -63,7 +75,10 @@ class TreeList{
      * @return TreeNode the removed element
      * */
     shift(){
-        //TODO need to keep the reference of the first element every time an element is deleted
+        let temp = this.root.data;
+        this.root = this.__delete(this.root, this.root);
+        this.size--;
+        return temp;
     }
 
     /**
@@ -71,7 +86,7 @@ class TreeList{
      * @return boolean true, if the element is present in the list
      * */
     contains(ele){
-        return (this.indexOf(ele)>0);
+        return (this.indexOf(ele)>-1);
     }
 
     /**
@@ -80,8 +95,8 @@ class TreeList{
      * */
     indexOf(ele){
         let idx = -1;
-        this.__traverse(this.root, (node)=>{if(!(this.comparator(node, ele) === 0)){idx++}});
-        return idx;
+        this.__traverse(this.root, (node)=>{if(!(this.comparator(node, ele) < 0)){idx++}});
+        return ++idx;
     }
 
     /**
@@ -89,7 +104,9 @@ class TreeList{
      * @return int the last index of the given element
      * */
     lastIndexOf(ele){
-
+        let idx = -1;
+        this.__traverse(this.root, (node)=>{if(!(this.comparator(node, ele) <= 0)){idx++}});
+        return ++idx;
     }
 
     /**
@@ -143,10 +160,9 @@ class TreeList{
         return arr;
     }
 
-    /**
-     * method does inorder traversal on the tree
-     * TODO this works ? No need to use promises ?
-     * */
+    //method does inorder traversal on the tree
+    //node is the start node, from where traversing is to begin.
+    //TODO this works ? No need to use promises ?
     __traverse(node, consumer){
         if(node === null){
             return;
@@ -157,6 +173,26 @@ class TreeList{
         consumer(node);
         if(node.right){
             this.__traverse(node.right, consumer);
+        }
+    }
+
+    //method does inorder traversal on the tree
+    //node is the start node, from where traversing is to begin.
+    //predicate_consumer is the consumer, and returns false if the traversing is to be stopped.
+    //TODO this works ? No need to use promises ?
+    //TODO check for bugs in this method.
+    __traverseAndBreak(node, predicate_consumer){
+        if(node === null){
+            return;
+        }
+        if(node.left){
+            this.__traverse(node.left, predicate_consumer);
+        }
+        if(!predicate_consumer(node)){
+		return;
+	}
+        if(node.right){
+            this.__traverse(node.right, predicate_consumer);
         }
     }
 
@@ -249,3 +285,5 @@ module.exports = {TreeList};
 // t.push(new TreeNode(2.5))
 // t.push(new TreeNode(4))
 // })();
+
+
