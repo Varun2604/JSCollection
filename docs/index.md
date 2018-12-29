@@ -57,7 +57,7 @@
 | Param | Default | Description |
 | --- | --- | --- |
 | comparator |  | the comparator function |
-| root | <code></code> | the root element Comparator working :- <pre class="prettyprint source"><code>               1. The comparator returns -1 if the new node is lesser than the previous node                2. The comparator returns 0 if the new node is equal to the previous node                3. The comparator returns 1 if the new node is greater than the previous node</code></pre> |
+| root | <code></code> | the root element Comparator working :- <code>               1. The comparator returns -1 if the new node is lesser than the previous node                2. The comparator returns 0 if the new node is equal to the previous node                3. The comparator returns 1 if the new node is greater than the previous node</code>|
 
 <a name="TreeList+push"></a>
 
