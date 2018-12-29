@@ -384,19 +384,19 @@ class TreeList{
 
 module.exports = {TreeList};
 
-(()=>{
-    var {TreeList} = require('./TreeList');
-    var {TreeNode} = require('./TreeNode');
-    var t = new TreeList()
-    t.push(new TreeNode(1))
-    t.push(new TreeNode(0))
-    t.push(new TreeNode(2))
-    t.push(new TreeNode(1.5))
-    t.push(new TreeNode(3))
-    t.push(new TreeNode(2.5))
-    t.push(new TreeNode(4))
-    // t.__traverseAndBreak(t.root, (x)=>{console.log(x.data); if(x.data === 2){return false;}else{return true}});
-    t.indexOf(1);
-})();
+// (()=>{
+//     var {TreeList} = require('./TreeList');
+//     var {TreeNode} = require('./TreeNode');
+//     var t = new TreeList()
+//     t.push(new TreeNode(1))
+//     t.push(new TreeNode(0))
+//     t.push(new TreeNode(2))
+//     t.push(new TreeNode(1.5))
+//     t.push(new TreeNode(3))
+//     t.push(new TreeNode(2.5))
+//     t.push(new TreeNode(4))
+//     // t.__traverseAndBreak(t.root, (x)=>{console.log(x.data); if(x.data === 2){return false;}else{return true}});
+//     t.indexOf(1);
+// })();
 
 
