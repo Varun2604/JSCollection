@@ -16,7 +16,6 @@ class TreeList{
         this.size = 0;
         this[Symbol.iterator] = function* (){
             let arr = [];
-            console.log('calling traverse');
             this.__traverse(this.root, (x)=>{
                 arr.push(x.data);
             });
@@ -32,6 +31,9 @@ class TreeList{
      * @return boolean returns true if the insertion is successful
      * */
     push(new_ele){
+        if(!new_ele instanceof TreeNode){
+            new_ele = new TreeNode(new_ele);
+        }
         let inserted = false;
         if(!this.root){
             this.root = new_ele;
@@ -51,12 +53,15 @@ class TreeList{
      * @return TreeNode the removed element
      * */
     remove(ele){
+        if(!ele instanceof TreeNode){
+            ele = new TreeNode(ele);
+        }
         if(!this.root){
             return null;
         }
         this.size--;
         this.__delete(ele, this.root);
-	    return ele.data;
+        return ele.data;
     }
 
     /**
@@ -64,7 +69,7 @@ class TreeList{
      * @return TreeNode the removed element
      * */
     pop(){
-        let last_val = TreeList.__leftMost(this.root);
+        let last_val = TreeList.leftMost(this.root);
         this.__delete(new TreeNode(last_val), this.root);
         this.size--;
         return last_val;
@@ -86,6 +91,9 @@ class TreeList{
      * @return boolean true, if the element is present in the list
      * */
     contains(ele){
+        if(!ele instanceof TreeNode){
+            ele = new TreeNode(ele);
+        }
         return (this.indexOf(ele)>-1);
     }
 
@@ -94,6 +102,9 @@ class TreeList{
      * @return int the index of the given element
      * */
     indexOf(ele){
+        if(!ele instanceof TreeNode){
+            ele = new TreeNode(ele);
+        }
         let idx = -1;
         this.__traverse(this.root, (node)=>{if(!(this.comparator(node, ele) < 0)){idx++}});
         return ++idx;
@@ -104,6 +115,9 @@ class TreeList{
      * @return int the last index of the given element
      * */
     lastIndexOf(ele){
+        if(!ele instanceof TreeNode){
+            ele = new TreeNode(ele);
+        }
         let idx = -1;
         this.__traverse(this.root, (node)=>{if(!(this.comparator(node, ele) <= 0)){idx++}});
         return ++idx;
@@ -162,7 +176,6 @@ class TreeList{
 
     //method does inorder traversal on the tree
     //node is the start node, from where traversing is to begin.
-    //TODO this works ? No need to use promises ?
     __traverse(node, consumer){
         if(node === null){
             return;
@@ -179,20 +192,22 @@ class TreeList{
     //method does inorder traversal on the tree
     //node is the start node, from where traversing is to begin.
     //predicate_consumer is the consumer, and returns false if the traversing is to be stopped.
-    //TODO this works ? No need to use promises ?
-    //TODO check for bugs in this method.
     __traverseAndBreak(node, predicate_consumer){
         if(node === null){
             return;
         }
         if(node.left){
-            this.__traverse(node.left, predicate_consumer);
+            if(this.__traverseAndBreak(node.left, predicate_consumer) === false){
+                return;
+            }
         }
         if(!predicate_consumer(node)){
-		return;
-	}
+            return false;
+        }
         if(node.right){
-            this.__traverse(node.right, predicate_consumer);
+            if(this.__traverseAndBreak(node.right, predicate_consumer) === false){
+                return;
+            }
         }
     }
 
@@ -217,7 +232,7 @@ class TreeList{
             }
 
             //case with both children.
-            current_node.data = TreeList.__leftMost(current_node.right);            //find the leftmost value to the right node of the current node
+            current_node.data = TreeList.leftMost(current_node.right);            //find the leftmost value to the right node of the current node
 
             current_node.right = this.__delete(current_node, current_node.right);
 
@@ -230,15 +245,6 @@ class TreeList{
         }
 
         return current_node;        //return the node that replaced the given node.
-    }
-
-    static __leftMost(node){
-        let left_most_val = node.data;
-        while(node.left){
-            left_most_val = node.left.data;
-            node = node.left;
-        }
-        return left_most_val;
     }
 
     __insert(new_ele, prev_ele){
@@ -259,31 +265,54 @@ class TreeList{
         }
     }
 
-    static comparator(prev_ele, new_ele){
-        if(prev_ele instanceof TreeNode){
-            prev_ele = prev_ele.data;
+    /**
+     * The default comparator, sorts the elements in ascending order
+     * @static
+     * @param curr_ele the previous element
+     * @param new_ele current element
+     * @return int returns +1 if the new element is to be placed right to the current element,
+     *              -1 if the new element is to be placed to the left of the current element
+     *              and 0 if the elements are equal.
+     * */
+    static comparator(curr_ele, new_ele){
+        if(curr_ele instanceof TreeNode){
+            curr_ele = curr_ele.data;
         }
         if(new_ele instanceof TreeNode){
             new_ele = new_ele.data;
         }
-        return (prev_ele>new_ele)?-1:+(prev_ele<new_ele)
+        return (curr_ele>new_ele)?-1:+(curr_ele<new_ele)
     }
 
+    /**
+     * Method returns the left most node with reference to the current node.
+     * @static
+     * @param node the node with reference to which the current node is to be found out.
+     * */
+    static leftMost(node){
+        let left_most_val = node.data;
+        while(node.left){
+            left_most_val = node.left.data;
+            node = node.left;
+        }
+        return left_most_val;
+    }
 }
 
 module.exports = {TreeList};
 
 // (()=>{
 //     var {TreeList} = require('./TreeList');
-// var {TreeNode} = require('./TreeNode');
-// var t = new TreeList()
-// t.push(new TreeNode(1))
-// t.push(new TreeNode(0))
-// t.push(new TreeNode(2))
-// t.push(new TreeNode(1.5))
-// t.push(new TreeNode(3))
-// t.push(new TreeNode(2.5))
-// t.push(new TreeNode(4))
+//     var {TreeNode} = require('./TreeNode');
+//     var t = new TreeList()
+//     t.push(new TreeNode(1))
+//     t.push(new TreeNode(0))
+//     t.push(new TreeNode(2))
+//     t.push(new TreeNode(1.5))
+//     t.push(new TreeNode(3))
+//     t.push(new TreeNode(2.5))
+//     t.push(new TreeNode(4))
+//     t.__traverseAndBreak(t.root, (x)=>{console.log(x.data); if(x.data === 2){return false;}else{return true}});
 // })();
 
 

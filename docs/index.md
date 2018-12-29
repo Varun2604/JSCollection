@@ -28,19 +28,22 @@
 
 * [TreeList](#TreeList)
     * [new TreeList(comparator, root)](#new_TreeList_new)
-    * [.push(new_ele)](#TreeList+push) ⇒
-    * [.remove(ele)](#TreeList+remove) ⇒
-    * [.pop()](#TreeList+pop) ⇒
-    * [.shift()](#TreeList+shift) ⇒
-    * [.contains()](#TreeList+contains) ⇒
-    * [.indexOf()](#TreeList+indexOf) ⇒
-    * [.lastIndexOf()](#TreeList+lastIndexOf) ⇒
-    * [.forEach(consumer)](#TreeList+forEach)
-    * [.join(delimiter)](#TreeList+join) ⇒
-    * [.filter(predicate)](#TreeList+filter) ⇒
-    * [.map(consumer)](#TreeList+map) ⇒
-    * [.toArray()](#TreeList+toArray) ⇒
-    * [.__traverse()](#TreeList+__traverse)
+    * _instance_
+        * [.push(new_ele)](#TreeList+push) ⇒
+        * [.remove(ele)](#TreeList+remove) ⇒
+        * [.pop()](#TreeList+pop) ⇒
+        * [.shift()](#TreeList+shift) ⇒
+        * [.contains()](#TreeList+contains) ⇒
+        * [.indexOf()](#TreeList+indexOf) ⇒
+        * [.lastIndexOf()](#TreeList+lastIndexOf) ⇒
+        * [.forEach(consumer)](#TreeList+forEach)
+        * [.join(delimiter)](#TreeList+join) ⇒
+        * [.filter(predicate)](#TreeList+filter) ⇒
+        * [.map(consumer)](#TreeList+map) ⇒
+        * [.toArray()](#TreeList+toArray) ⇒
+    * _static_
+        * [.comparator(curr_ele, new_ele)](#TreeList.comparator) ⇒
+        * [.leftMost(node)](#TreeList.leftMost)
 
 <a name="new_TreeList_new"></a>
 
@@ -164,4 +167,28 @@
 
 **Kind**: instance method of [<code>TreeList</code>](#TreeList)  
 **Returns**: <p>Array the contents of the list</p>  
-<a name="TreeList+__traverse"></a>
+<a name="TreeList.comparator"></a>
+
+### TreeList.comparator(curr_ele, new_ele) ⇒
+<p>The default comparator, sorts the elements in ascending order</p>
+
+**Kind**: static method of [<code>TreeList</code>](#TreeList)  
+**Returns**: <p>int returns +1 if the new element is to be placed right to the current element,
+             -1 if the new element is to be placed to the left of the current element
+             and 0 if the elements are equal.</p>  
+
+| Param | Description |
+| --- | --- |
+| curr_ele | <p>the previous element</p> |
+| new_ele | <p>current element</p> |
+
+<a name="TreeList.leftMost"></a>
+
+### TreeList.leftMost(node)
+<p>Method returns the left most node with reference to the current node.</p>
+
+**Kind**: static method of [<code>TreeList</code>](#TreeList)  
+
+| Param | Description |
+| --- | --- |
+| node | <p>the node with reference to which the current node is to be found out.</p> |
