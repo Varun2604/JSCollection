@@ -5,4 +5,6 @@
 <dd></dd>
 <dt><a href="https://varun2604.github.io/jscollection/TreeList.html">TreeList</a></dt>
 <dd></dd>
+<dt><a href="https://varun2604.github.io/jscollection/TreeSet.html">TreeSet</a></dt>
+<dd></dd>
 </dl>
