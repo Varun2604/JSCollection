@@ -1,13 +1,13 @@
 {
-  "name": "jscollection",
-  "version": "1.0.0",
+  "name": "js-collection",
+  "version": "0.0.1",
   "description": "Simple collection classes that can be used in JS/Node.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "node",
     "collection",
     "sorted",
-    "collection",
+    "collections",
     "TreeSet",
     "SortedSet"
   ],
@@ -29,5 +29,11 @@
   "bugs": {
     "url": "https://github.com/Varun2604/JSCollection/issues"
   },
-  "homepage": "https://github.com/Varun2604/JSCollection#readme"
+  "homepage": "https://github.com/Varun2604/JSCollection#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "md5": "^2.2.1"
+  }
 }

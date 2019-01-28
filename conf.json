@@ -1,0 +1,13 @@
+{
+  "source": {
+  },
+  "opts": {
+    "debug": false,
+    "destination": "./test.md"
+  },
+  "plugins": ["./node_modules/jsdoc/plugins/markdown"],
+  "markdown": {
+    "idIdHeadings": true
+  }
+}
+
