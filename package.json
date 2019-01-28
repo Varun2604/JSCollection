@@ -1,6 +1,6 @@
 {
-  "name": "js-collection",
-  "version": "0.0.1",
+  "name": "data-collection.js",
+  "version": "0.0.2",
   "description": "Simple collection classes that can be used in JS/Node.",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Varun2604/JSCollection.git"
+    "url": "git+https://github.com/Varun2604/js-collection.git"
   },
   "keywords": [
     "collection",
