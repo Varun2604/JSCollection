@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const {LinkedList} = require('../LinkedList');
+const {LinkedList} = require('../lib/collection/LinkedList');
 
 const linkedList = new LinkedList();
 
@@ -109,7 +109,7 @@ let LinkedListTests = function() {
         /**
          * checking get at the 2nd index
          * */
-        it('checking get at 0th index', function() {
+        it('checking get at nth index', function() {
             assert.equal(linkedList.get(2), 1);
         });
         /**
@@ -122,7 +122,6 @@ let LinkedListTests = function() {
          * checking get at an index that does not exist
          * */
         it('checking get at an index that does not exist', function() {
-            console.log(linkedList.get(21));
             assert.equal(linkedList.get(21), null);
         });
     });
