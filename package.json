@@ -7,7 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/gulp test_min",
+    "test.all" : "./node_modules/.bin/gulp test",
+    "bundle" : "./node_modules/.bin/gulp build",
+    "document" : "./node_modules/.bin/gulp document",
+    "build" : "./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
@@ -15,23 +19,35 @@
   },
   "keywords": [
     "collection",
-    "collection",
-    "classes",
-    "node",
-    "collection",
-    "sorted",
     "collections",
+    "collection classes",
+    "data structures",
+    "data store",
+    "data",
+    "Set",
     "TreeSet",
-    "SortedSet"
+    "SortedSet",
+    "List",
+    "LinkedList",
+    "SortedList"
   ],
   "author": "Varun Venketeswaran Iyer (Varun2604)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Varun2604/JSCollection/issues"
+    "url": "https://github.com/Varun2604/data-collection.js/issues"
   },
-  "homepage": "https://github.com/Varun2604/JSCollection#readme",
+  "homepage": "https://github.com/Varun2604/data-collection.js#readme",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-jsdoc-to-markdown": "^1.2.2",
+    "gulp-mocha": "^6.0.0",
+    "gulp-rename": "^1.4.0",
+    "mocha": "^5.2.0",
+    "webpack": "^4.29.0",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "md5": "^2.2.1"

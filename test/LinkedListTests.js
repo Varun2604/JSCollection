@@ -3,9 +3,10 @@ const assert = require('assert');
 const {LinkedList} = require('../lib/collection/LinkedList');
 const {LinkedNode} = require('../lib/node/LinkedNode');
 
-const linkedList = new LinkedList();
 
 let LinkedListTests = function() {
+
+    const linkedList = new LinkedList();
 
     describe('#push()', function() {
 
@@ -15,6 +16,7 @@ let LinkedListTests = function() {
         it('size should be 1 when an element is pushed', function() {
             linkedList.push(0);
             assert.equal(linkedList.size, 1);
+            assert.equal(linkedList.get(0), 0);
         });
         it('size should be 2 when another element is pushed', function() {
             linkedList.push(1);
